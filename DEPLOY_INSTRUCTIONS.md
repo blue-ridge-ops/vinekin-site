@@ -43,7 +43,7 @@ GitHub will build in ~60 seconds. Your site will first be available at:
 
 ## Step 4: Point GoDaddy DNS to GitHub (5 minutes)
 
-1. Log into **GoDaddy** → **My Domains** → **vinkine.com** → **DNS**
+1. Log into **GoDaddy** → **My Domains** → **vinekin.com** → **DNS**
 2. **Remove** any existing A records or forwarding rules
 3. **Add these 4 A records**:
 
@@ -69,7 +69,7 @@ GitHub will build in ~60 seconds. Your site will first be available at:
 DNS usually takes 5–30 minutes. Once it's ready:
 
 1. Go to **https://github.com/blue-ridge-ops/vinekin-website/settings/pages**
-2. Under **Custom domain**, type: `vinkine.com`
+2. Under **Custom domain**, type: `vinekin.com`
 3. Click **Save**
 4. Wait for the DNS check to pass (green checkmark)
 5. Check **"Enforce HTTPS"**
@@ -79,8 +79,8 @@ DNS usually takes 5–30 minutes. Once it's ready:
 ## Done! 🌿
 
 Your site is now live at:
-- **https://vinkine.com**
-- **https://www.vinkine.com**
+- **https://vinekin.com**
+- **https://www.vinekin.com**
 
 Future updates: edit files → commit → push → auto-deploys in ~60 seconds.
 
