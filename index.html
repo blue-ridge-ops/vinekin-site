@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VineKin — Bible Learning That Grows With You</title>
+  <meta name="description" content="VineKin is a gamified Bible learning app for busy parents. Daily lessons, verse mastery, personalized devotionals, and Soul Friend accountability — all designed with grace, not guilt.">
+  <meta property="og:title" content="VineKin — Bible Learning That Grows With You">
+  <meta property="og:description" content="Daily Bible lessons designed for busy parents. Learn Scripture in 5 minutes a day with grace, not guilt.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinkine.com">
+  <meta property="og:image" content="images/vinekin_logo.png">
+  <link rel="icon" type="image/png" href="images/vinekin_logo_no_text.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ======================================================================
+       VineKin Marketing Site — Styles
+       Brand colors derived from the logo:
+         Cross/trunk: olive-bronze (#7B6B3A, #5C4A2A)
+         Leaves: green (#6B9B3A, #8FB84A, #5A8A2E)
+         Background: warm cream tones
+       ====================================================================== */
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Brand greens (from logo leaves) */
+      --leaf: #6B9B3A;
+      --leaf-light: #8FB84A;
+      --leaf-dark: #4A7A28;
+      --leaf-muted: #E9F2DE;
+
+      /* Brand bronze/olive (from logo cross) */
+      --cross: #7B6B3A;
+      --cross-light: #9E8D5C;
+      --cross-dark: #5C4A2A;
+
+      /* Neutrals */
+      --cream: #FBF7F0;
+      --cream-dark: #F0EAE0;
+      --warm-white: #FEFCF9;
+      --bark: #3B2F24;
+      --bark-light: #6B5D50;
+      --bark-muted: #9B8E82;
+
+      /* Shadows */
+      --soft-shadow: 0 2px 20px rgba(59, 47, 36, 0.07);
+      --medium-shadow: 0 8px 40px rgba(59, 47, 36, 0.10);
+      --lift-shadow: 0 12px 48px rgba(59, 47, 36, 0.14);
+
+      /* Type */
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+
+      /* Spacing */
+      --section-y: clamp(5rem, 12vw, 9rem);
+      --section-x: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--bark);
+      background: var(--warm-white);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem var(--section-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    nav.scrolled {
+      background: rgba(254, 252, 249, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 1px 16px rgba(59, 47, 36, 0.06);
+      padding-top: 0.65rem;
+      padding-bottom: 0.65rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--bark);
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      color: var(--cross-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--bark-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--leaf);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--leaf-dark); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--leaf) !important;
+      color: white !important;
+      padding: 0.55rem 1.35rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--leaf-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--bark);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--leaf);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(107, 155, 58, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--leaf-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(107, 155, 58, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--bark);
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--cream-dark);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--leaf-light);
+      color: var(--leaf-dark);
+      background: var(--leaf-muted);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: var(--section-y) var(--section-x);
+      padding-top: 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 80%, rgba(107,155,58,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 85% 15%, rgba(123,107,58,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    .hero-text { animation: fadeInUp 0.9s ease-out; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--leaf-muted);
+      color: var(--leaf-dark);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--leaf);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 em { font-style: italic; color: var(--leaf); }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+      color: var(--bark-light);
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-tagline {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: var(--bark-muted);
+      font-style: italic;
+    }
+
+    .hero-tagline strong {
+      color: var(--cross);
+      font-style: normal;
+    }
+
+    /* Phone mockup */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      animation: fadeInUp 0.9s ease-out 0.15s both;
+    }
+
+    .phone-frame {
+      width: 290px; height: 590px;
+      background: var(--cross-dark);
+      border-radius: 42px;
+      padding: 11px;
+      box-shadow: var(--lift-shadow), 0 24px 64px rgba(59,47,36,0.18);
+    }
+
+    .phone-screen {
+      width: 100%; height: 100%;
+      border-radius: 32px;
+      background: linear-gradient(168deg, #f8f5ee 0%, #edf4e6 45%, #f7f4ed 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-notch {
+      width: 110px; height: 26px;
+      background: var(--cross-dark);
+      border-radius: 0 0 16px 16px;
+      margin: 0 auto;
+    }
+
+    .ph-body { flex: 1; padding: 1.1rem 1.3rem; display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .ph-greet {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+    }
+
+    .ph-greet small {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--bark-muted);
+      margin-top: 2px;
+    }
+
+    .ph-card {
+      background: white;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 1px 6px rgba(59,47,36,0.05);
+    }
+
+    .ph-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--leaf);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.3rem;
+    }
+
+    .ph-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .ph-text { font-size: 0.7rem; color: var(--bark-muted); line-height: 1.45; }
+
+    .ph-verse {
+      background: var(--leaf-muted);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      border-left: 3px solid var(--leaf);
+    }
+
+    .ph-verse p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.74rem;
+      color: var(--leaf-dark);
+      line-height: 1.45;
+    }
+
+    .ph-verse cite {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.6rem;
+      color: var(--leaf);
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    .ph-progress { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.3rem; }
+    .ph-bar { flex: 1; height: 5px; background: var(--cream-dark); border-radius: 10px; overflow: hidden; }
+    .ph-fill { width: 65%; height: 100%; background: linear-gradient(90deg, var(--leaf), var(--leaf-light)); border-radius: 10px; }
+    .ph-pct { font-size: 0.65rem; font-weight: 700; color: var(--leaf); }
+
+    .ph-nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.7rem 0 0.4rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .ph-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.55rem;
+      color: var(--bark-muted);
+    }
+
+    .ph-nav-item.active { color: var(--leaf); }
+    .ph-nav-item svg { width: 18px; height: 18px; }
+
+    /* ===== SHARED SECTION STYLES ===== */
+    section { padding: var(--section-y) var(--section-x); }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--leaf);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--bark-light);
+    }
+
+    /* ===== GRACE BANNER ===== */
+    .grace-banner {
+      background: var(--leaf-muted);
+      padding: 2.8rem var(--section-x);
+      text-align: center;
+    }
+
+    .grace-banner blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--leaf-dark);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    /* ===== FEATURES ===== */
+    .features { background: var(--warm-white); }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.8rem;
+      border: 1px solid rgba(107,155,58,0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--leaf), var(--leaf-light));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--medium-shadow);
+      transform: translateY(-4px);
+    }
+
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 50px; height: 50px;
+      background: var(--leaf-muted);
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      color: var(--leaf);
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--bark-light);
+      line-height: 1.6;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works { background: var(--cream); }
+
+    .steps { max-width: 880px; margin: 0 auto; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1.8rem;
+      padding: 1.8rem 0;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 35px;
+      top: calc(1.8rem + 56px);
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--leaf-light), transparent);
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--leaf);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+
+    .step h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--bark-light);
+      max-width: 560px;
+    }
+
+    /* ===== TRADITIONS ===== */
+    .traditions { background: var(--warm-white); }
+
+    .denom-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+    }
+
+    .denom-card {
+      text-align: center;
+      padding: 1.4rem 1rem;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid rgba(107,155,58,0.08);
+      transition: all 0.3s;
+    }
+
+    .denom-card:hover {
+      box-shadow: var(--soft-shadow);
+      transform: translateY(-2px);
+    }
+
+    .denom-icon {
+      width: 46px; height: 46px;
+      margin: 0 auto 0.7rem;
+      background: var(--leaf-muted);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--leaf);
+    }
+
+    .denom-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+    }
+
+    .denom-card p { font-size: 0.76rem; color: var(--bark-muted); margin-top: 0.25rem; }
+
+    /* ===== SCRIPTURE BANNER ===== */
+    .scripture-banner {
+      background: var(--cross-dark);
+      color: white;
+      text-align: center;
+      padding: 5rem var(--section-x);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scripture-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 30% 70%, rgba(255,255,255,0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 70% 30%, rgba(107,155,58,0.06) 0%, transparent 70%);
+    }
+
+    .scripture-inner {
+      position: relative; z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .scripture-inner blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .scripture-inner cite {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.95rem;
+      color: var(--leaf-light);
+      font-weight: 500;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing { background: var(--cream); }
+
+    .pricing-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.3rem;
+      align-items: start;
+    }
+
+    .price-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.6rem 1.3rem;
+      border: 1px solid rgba(107,155,58,0.08);
+      text-align: center;
+      transition: all 0.4s;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--leaf);
+      position: relative;
+      transform: scale(1.03);
+      box-shadow: var(--medium-shadow);
+    }
+
+    .price-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -11px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--leaf);
+      color: white;
+      padding: 0.22rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .price-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .price-tag {
+      font-size: 0.74rem;
+      color: var(--bark-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--leaf-dark);
+      margin: 0.4rem 0 0.15rem;
+    }
+
+    .price-amount span {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--bark-muted);
+    }
+
+    .price-period {
+      font-size: 0.74rem;
+      color: var(--bark-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .price-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    .price-list li {
+      font-size: 0.8rem;
+      color: var(--bark-light);
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .chk {
+      width: 15px; height: 15px;
+      color: var(--leaf);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .price-card .btn-primary,
+    .price-card .btn-secondary {
+      width: 100%;
+      justify-content: center;
+      font-size: 0.88rem;
+      padding: 0.7rem 1rem;
+    }
+
+    .pricing-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-footer p {
+      font-size: 0.88rem;
+      color: var(--bark-light);
+      line-height: 1.6;
+    }
+
+    .pricing-footer strong { color: var(--leaf-dark); }
+
+    .donate-link {
+      color: var(--leaf);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .donate-link:hover { color: var(--leaf-dark); }
+
+    /* ===== CHURCHES ===== */
+    .churches { background: var(--warm-white); }
+
+    .church-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .church-text h2 { text-align: left; }
+
+    .church-text p {
+      font-size: 0.98rem;
+      color: var(--bark-light);
+      margin-bottom: 1.4rem;
+    }
+
+    .church-perks { list-style: none; margin-bottom: 1.8rem; }
+
+    .church-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.5rem 0;
+      font-size: 0.92rem;
+      color: var(--bark-light);
+    }
+
+    .church-perks li svg {
+      width: 19px; height: 19px;
+      color: var(--leaf);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .church-card {
+      background: var(--leaf-muted);
+      border-radius: 22px;
+      padding: 2.8rem 2.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .church-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(107,155,58,0.08) 0%, transparent 70%);
+    }
+
+    .church-card-inner { position: relative; z-index: 1; }
+
+    .church-card img {
+      height: 56px;
+      margin-bottom: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .church-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .church-card p {
+      font-size: 0.9rem;
+      color: var(--bark-light);
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .church-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .church-stat { text-align: center; }
+
+    .church-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--leaf-dark);
+    }
+
+    .church-stat-label {
+      font-size: 0.7rem;
+      color: var(--bark-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== CTA ===== */
+    .final-cta { background: var(--warm-white); text-align: center; }
+    .final-cta h2 { margin-bottom: 1rem; }
+
+    .final-cta .section-desc {
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .email-form {
+      max-width: 460px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .email-form input {
+      flex: 1;
+      padding: 0.85rem 1.3rem;
+      border: 2px solid var(--cream-dark);
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s;
+      background: white;
+      color: var(--bark);
+    }
+
+    .email-form input:focus { border-color: var(--leaf); }
+    .email-form input::placeholder { color: var(--bark-muted); }
+
+    .cta-note {
+      font-size: 0.78rem;
+      color: var(--bark-muted);
+      margin-top: 0.8rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--cross-dark);
+      color: rgba(255,255,255,0.65);
+      padding: 3.5rem var(--section-x) 1.8rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand .nav-logo span { color: rgba(255,255,255,0.9); }
+    .footer-brand .nav-logo img { filter: brightness(1.5); }
+
+    .footer-brand p {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin-top: 0.8rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.45rem; }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--leaf-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2.2rem auto 0;
+      padding-top: 1.3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
+      .price-card.featured { transform: none; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-tagline { text-align: center; }
+      .hero-visual { order: -1; }
+      .phone-frame { width: 240px; height: 480px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; max-width: 580px; }
+      .denom-grid { grid-template-columns: repeat(2, 1fr); }
+      .church-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .church-text h2 { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--cream);
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: var(--soft-shadow);
+      }
+
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 340px; }
+
+      .step { grid-template-columns: 48px 1fr; gap: 1rem; }
+      .step-num { width: 42px; height: 42px; font-size: 1rem; }
+      .step:not(:last-child)::after { left: 20px; }
+
+      .email-form { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="images/vinekin_logo_no_text.png" alt="VineKin Logo" width="38" height="38">
+      <span>VineKin</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#traditions">Traditions</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#churches">Churches</a></li>
+      <li><a href="#join" class="nav-cta">Join the Waitlist</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Coming Soon</div>
+        <h1>Bible learning that <em>grows</em> with&nbsp;you</h1>
+        <p class="hero-subtitle">Five minutes a day to know Scripture deeper. Interactive lessons, verse mastery, and personalized devotionals designed for busy parents who want more than just reading plans.</p>
+        <div class="hero-actions">
+          <a href="#join" class="btn-primary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get Early Access
+          </a>
+          <a href="#features" class="btn-secondary">See Features</a>
+        </div>
+        <p class="hero-tagline"><strong>Family in Christ.</strong> Serving Catholic, Orthodox, Anglican &amp; Evangelical traditions.</p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="ph-body">
+              <div class="ph-greet">Good morning<small>Today's journey through Philippians</small></div>
+              <div class="ph-card">
+                <div class="ph-label">Today's Devotional</div>
+                <div class="ph-title">Joy in the Juggle</div>
+                <div class="ph-text">Finding peace when the morning routine falls apart...</div>
+              </div>
+              <div class="ph-verse">
+                <p>"I can do all things through him who strengthens me."</p>
+                <cite>Philippians 4:13 ESV</cite>
+              </div>
+              <div class="ph-card">
+                <div class="ph-label">Verse Mastery</div>
+                <div class="ph-progress">
+                  <div class="ph-bar"><div class="ph-fill"></div></div>
+                  <span class="ph-pct">65%</span>
+                </div>
+                <div class="ph-text" style="margin-top:0.3rem;">3 of 5 exercises complete</div>
+              </div>
+              <div class="ph-nav">
+                <div class="ph-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home</div>
+                <div class="ph-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Learn</div>
+                <div class="ph-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Friends</div>
+                <div class="ph-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>More</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRACE BANNER -->
+  <div class="grace-banner fade-in">
+    <blockquote>"God doesn't keep score. Neither do we."</blockquote>
+  </div>
+
+  <!-- ============================================================
+       FEATURES (9 cards aligned to full codebase)
+       ============================================================ -->
+  <section class="features" id="features">
+    <div class="section-header fade-in">
+      <span class="section-label">Features</span>
+      <h2>Everything you need to grow in Scripture</h2>
+      <p class="section-desc">Not another reading plan you'll abandon. VineKin uses proven learning science to help God's Word take root.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>5-Minute Lessons</h3>
+        <p>Bite-sized interactive lessons that fit between school drop-off and your first meeting. Learn through doing, not just reading.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <h3>Verse Mastery</h3>
+        <p>Memorize Scripture through word ordering, fill-in-the-blank, reference identification, and spaced repetition. Actually remember what you read.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3>Personalized Devotionals</h3>
+        <p>365 days of devotionals that connect Scripture to your real life — parenting, work, marriage, and the beautiful chaos in between.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Soul Friends &amp; Small Groups</h3>
+        <p>Inspired by the Celtic "anam cara" tradition. Walk with an accountability partner or grow in a small group of 3–10 with shared devotionals and discussion prompts.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+        <h3>Life-Stage Prayers</h3>
+        <p>Guided prayers for pivotal moments: a child's first day of school, job loss, new baby, marital struggles. Tailored to your tradition and season of life.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Grace-First Design</h3>
+        <p>Forgiving streaks, flexible weekly goals, and zero guilt trips. We earn "Seeds" not points, and your journey is your own. Life happens — your Bible app gets that.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>
+        <h3>Examination of Conscience</h3>
+        <p>Guided reflection through multiple frameworks — Ten Commandments, Beatitudes, Fruit of the Spirit — with personalized Scripture surfaced for every struggle.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Dinner Table Starters</h3>
+        <p>100+ age-appropriate conversation starters to help you bring Scripture into everyday family moments — bedtime, car rides, and dinner. You lead the conversation; we give you the words.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Adaptive Learning</h3>
+        <p>Placement testing meets you where you are. The app adjusts difficulty based on your knowledge so beginners build confidence and veterans stay challenged.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-header fade-in">
+      <span class="section-label">How It Works</span>
+      <h2>Start growing in three simple steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step fade-in">
+        <div class="step-num">1</div>
+        <div><h3>Tell us about your life</h3><p>Pick your tradition, share your life stage, and let us know what matters to you. We personalize everything — devotionals, prayer styles, and the Bible translation you see first.</p></div>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">2</div>
+        <div><h3>Learn for five minutes a day</h3><p>Interactive lessons teach through practice, not lectures. Arrange verses, fill in blanks, answer reflection questions — and actually retain what you learn through spaced repetition.</p></div>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">3</div>
+        <div><h3>Watch it take root</h3><p>Over weeks and months, see Scripture weave into your conversations, parenting, and daily decisions. Invite a Soul Friend or start a small group to grow alongside you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRADITIONS
+       ============================================================ -->
+  <section class="traditions" id="traditions">
+    <div class="section-header fade-in">
+      <span class="section-label">All Traditions Welcome</span>
+      <h2>One vine, many branches</h2>
+      <p class="section-desc">VineKin serves the whole Body of Christ with tradition-sensitive content, multiple Bible translations, and liturgical calendar support.</p>
+    </div>
+    <div class="denom-grid fade-in">
+      <div class="denom-card">
+        <div class="denom-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+        <h4>Catholic</h4>
+        <p>NABRE, Liturgical Year, Sacrament Prep</p>
+      </div>
+      <div class="denom-card">
+        <div class="denom-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg></div>
+        <h4>Orthodox</h4>
+        <p>Julian Calendar, Fasting Guides</p>
+      </div>
+      <div class="denom-card">
+        <div class="denom-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <h4>Anglican</h4>
+        <p>Book of Common Prayer, Lectionary</p>
+      </div>
+      <div class="denom-card">
+        <div class="denom-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <h4>Evangelical</h4>
+        <p>NIV, ESV, NASB &amp; More</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPTURE BANNER -->
+  <div class="scripture-banner">
+    <div class="scripture-inner fade-in">
+      <blockquote>"I am the vine; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit."</blockquote>
+      <cite>John 15:5 ESV</cite>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PRICING (5 tiers: Free, Premium, Soul Friend Duo, Small Group, Family)
+       ============================================================ -->
+  <section class="pricing" id="pricing">
+    <div class="section-header fade-in">
+      <span class="section-label">Pricing</span>
+      <h2>Generous free tier. Meaningful&nbsp;premium.</h2>
+      <p class="section-desc">Core spiritual access is always free. Premium unlocks deeper tools — and grows cheaper the more people you bring along.</p>
+    </div>
+    <div class="pricing-grid fade-in">
+      <!-- FREE -->
+      <div class="price-card">
+        <h3>Free</h3><p class="price-tag">Get started</p>
+        <div class="price-amount">$0</div><p class="price-period">Forever</p>
+        <ul class="price-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Daily Bible lessons</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Basic verse mastery</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 Bible translation</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Community challenges</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Basic examination of conscience</li>
+        </ul>
+        <a href="#join" class="btn-secondary">Get Started</a>
+      </div>
+      <!-- PREMIUM -->
+      <div class="price-card featured">
+        <h3>Premium</h3><p class="price-tag">For individuals</p>
+        <div class="price-amount">$5.99<span>/mo</span></div><p class="price-period">or $49.99/year (save 30%)</p>
+        <ul class="price-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Free</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited translations</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personalized devotionals</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soul Friend accountability partners</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Up to 3 Soul Friends</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Life-stage prayers &amp; all frameworks</li>
+        </ul>
+        <a href="#join" class="btn-primary">Join Waitlist</a>
+      </div>
+      <!-- SOUL FRIEND DUO -->
+      <div class="price-card">
+        <h3>Soul Friend Duo</h3><p class="price-tag">Grow with a partner</p>
+        <div class="price-amount">$3.99<span>/mo</span></div><p class="price-period">each — or $34.99/yr each</p>
+        <ul class="price-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Premium</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Sign up with a friend</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Faithfulness bonus discounts</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>33% off monthly pricing</li>
+        </ul>
+        <a href="#join" class="btn-secondary">Bring a Friend</a>
+      </div>
+      <!-- SMALL GROUP -->
+      <div class="price-card">
+        <h3>Small Group</h3><p class="price-tag">3–10 people</p>
+        <div class="price-amount">$2.99<span>/mo</span></div><p class="price-period">per person</p>
+        <ul class="price-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Premium</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Shared devotional content</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly discussion prompts</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Group accountability tools</li>
+        </ul>
+        <a href="#join" class="btn-secondary">Start a Group</a>
+      </div>
+
+    </div>
+    <div class="pricing-footer fade-in">
+      <p><strong>Scholarship program available</strong> — funded by donations from our community. No one should be priced out of growing in faith. <a href="#join" class="donate-link">Donate to fund a scholarship</a>. Free access for clergy and ministry leaders.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHURCH PARTNERSHIPS
+       ============================================================ -->
+  <section class="churches" id="churches">
+    <div class="church-grid">
+      <div class="church-text fade-in">
+        <span class="section-label">For Churches</span>
+        <h2>Equip your whole congregation</h2>
+        <p>Partner with VineKin to give every member of your church premium Bible learning at deeply discounted rates. We believe when a church invests in their people's spiritual growth, everyone benefits.</p>
+        <ul class="church-perks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Bulk licensing with significant discounts beyond standard pricing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Church admin dashboard with group management tools</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom church community page and seasonal challenges</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tradition-specific content for your denomination</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Free access for all clergy and ministry leaders</li>
+        </ul>
+        <a href="mailto:churches@vinkine.com" class="btn-primary">Partner With Us</a>
+      </div>
+      <div class="church-card fade-in">
+        <div class="church-card-inner">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" style="width:56px;height:56px;color:var(--leaf);margin-bottom:1.2rem;">
+            <path d="M8 56h48M20 56V28l12-20 12 20v28M14 56V36l6-8M50 56V36l-6-8M20 28h24M20 36h24M20 44h24"/>
+          </svg>
+          <h3>Church Partnership Program</h3>
+          <p>When your church partners with VineKin, every member gets premium access at a fraction of the cost. The larger the congregation, the deeper the discount.</p>
+          <div class="church-stats">
+            <div class="church-stat"><div class="church-stat-val">50%+</div><div class="church-stat-label">Savings</div></div>
+            <div class="church-stat"><div class="church-stat-val">All</div><div class="church-stat-label">Traditions</div></div>
+            <div class="church-stat"><div class="church-stat-val">Free</div><div class="church-stat-label">For Clergy</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA
+       ============================================================ -->
+  <section class="final-cta" id="join">
+    <div class="section-header fade-in" style="margin-bottom:0">
+      <span class="section-label">Early Access</span>
+      <h2>Be among the first to grow</h2>
+      <p class="section-desc">VineKin is launching soon. Join the waitlist and we'll let you know the moment it's ready.</p>
+      <form class="email-form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="Your email address" required aria-label="Email address">
+        <button type="submit" class="btn-primary">Join Waitlist</button>
+      </form>
+      <p class="cta-note">No spam, ever. Just a heads up when VineKin is ready for you.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <img src="images/vinekin_logo_no_text.png" alt="VineKin" width="34" height="34">
+          <span>VineKin</span>
+        </a>
+        <p>Bible learning that grows with you. Designed for busy parents, rooted in grace. Family in Christ.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#traditions">Traditions</a></li>
+          <li><a href="#churches">For Churches</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#join">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="mailto:hello@vinkine.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 VineKin. All rights reserved.</span>
+      <span>Made with faith in North Carolina.</span>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    // Scroll nav
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('mobileToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Intersection Observer for fade-in
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Waitlist form (placeholder — connect to Mailchimp/ConvertKit/etc.)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      btn.textContent = "You're In!";
+      btn.style.background = 'var(--leaf-dark)';
+      input.value = '';
+      setTimeout(() => { btn.textContent = 'Join Waitlist'; btn.style.background = ''; }, 3000);
+    }
+  </script>
+</body>
+</html>
