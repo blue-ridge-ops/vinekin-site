@@ -4,7 +4,8 @@ Marketing landing page for VineKin — a gamified Bible learning app for busy pa
 
 ## Tech Stack
 - Static HTML/CSS single-page site
-- Firebase Hosting + Firestore (waitlist signups)
+- **Hosted on GitHub Pages** (auto-deploys from `main` branch) — do NOT use `firebase deploy` for hosting
+- Firebase Firestore (waitlist signups only)
 - Firebase App Check with reCAPTCHA Enterprise
 - Google Fonts (Fraunces + DM Sans)
 
