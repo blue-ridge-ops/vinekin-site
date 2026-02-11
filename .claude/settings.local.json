@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"$token = \\(gcloud auth print-access-token\\); $headers = @{ ''Authorization'' = \"\"Bearer $token\"\"; ''Content-Type'' = ''application/json'' }; $body = ''{\"\"siteKey\"\":\"\"6LckGmcsAAAAAO5SFo6dFTpg1UI7tWaY155pHsY4\"\"}''; Invoke-RestMethod -Method Patch -Uri ''https://firebaseappcheck.googleapis.com/v1beta/projects/vinekin-bible/apps/1:1054751705073:web:6f8e1e7ab51e774f65a650/recaptchaEnterpriseConfig?updateMask=siteKey'' -Headers $headers -Body $body\")",
+      "Bash(powershell:*)"
+    ]
+  }
+}

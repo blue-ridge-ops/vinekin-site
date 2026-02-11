@@ -12,8 +12,8 @@
     content="Daily Bible lessons designed for busy parents. Learn Scripture in 5 minutes a day with grace, not guilt.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vinekin.com">
-  <meta property="og:image" content="images/VineKin.png">
-  <link rel="icon" type="image/png" href="images/VineKin.png">
+  <meta property="og:image" content="images/VineKinLogo.png">
+  <link rel="icon" type="image/png" href="images/VineKinLogo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -1332,7 +1332,7 @@
        ============================================================ -->
   <nav id="navbar">
     <a href="#" class="nav-logo">
-      <img src="images/VineKin.png" alt="VineKin Logo" width="38" height="38">
+      <img src="images/VineKinLogo.png" alt="VineKin Logo" width="38" height="38">
       <span>VineKin</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -1813,7 +1813,7 @@
       <h2>Be among the first to grow</h2>
       <p class="section-desc">VineKin is launching soon. Join the waitlist and we'll let you know the moment it's ready.
       </p>
-      <form class="email-form" onsubmit="handleSubmit(event)">
+      <form class="email-form">
         <input type="email" placeholder="Your email address" required aria-label="Email address">
         <button type="submit" class="btn-primary">Join Waitlist</button>
       </form>
@@ -1828,7 +1828,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <img src="images/VineKin.png" alt="VineKin" width="34" height="34">
+          <img src="images/VineKinLogo.png" alt="VineKin" width="34" height="34">
           <span>VineKin</span>
         </a>
         <p>Bible learning that grows with you. Designed for busy parents, rooted in grace. Family in Christ.</p>
@@ -1869,7 +1869,28 @@
   <!-- ============================================================
        SCRIPTS
        ============================================================ -->
-  <script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js';
+    import { getFirestore, doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js';
+    import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-app-check.js';
+
+    const app = initializeApp({
+      apiKey: "AIzaSyAYuBn7jXgdIzaMODNf6YB0QGg6_KKniAI",
+      authDomain: "vinekin-bible.firebaseapp.com",
+      projectId: "vinekin-bible",
+      storageBucket: "vinekin-bible.firebasestorage.app",
+      messagingSenderId: "1054751705073",
+      appId: "1:1054751705073:web:6f8e1e7ab51e774f65a650",
+      measurementId: "G-EX0VY09K3H"
+    });
+
+    initializeAppCheck(app, {
+      provider: new ReCaptchaEnterpriseProvider('6LckGmcsAAAAAO5SFo6dFTpg1UI7tWaY155pHsY4'),
+      isTokenAutoRefreshEnabled: true
+    });
+
+    const db = getFirestore(app);
+
     // Scroll nav
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1888,16 +1909,38 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    // Waitlist form (placeholder — connect to Mailchimp/ConvertKit/etc.)
-    function handleSubmit(e) {
+    // Waitlist form → Firebase Firestore
+    const form = document.querySelector('.email-form');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const input = e.target.querySelector('input');
-      const btn = e.target.querySelector('button');
-      btn.textContent = "You're In!";
-      btn.style.background = 'var(--leaf-dark)';
-      input.value = '';
-      setTimeout(() => { btn.textContent = 'Join Waitlist'; btn.style.background = ''; }, 3000);
-    }
+      const input = form.querySelector('input');
+      const btn = form.querySelector('button');
+      const email = input.value.trim().toLowerCase();
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      try {
+        await setDoc(doc(db, 'waitlist', email), {
+          email,
+          timestamp: serverTimestamp()
+        });
+        btn.textContent = "You're In!";
+        btn.style.background = 'var(--leaf-dark)';
+        input.value = '';
+      } catch (err) {
+        console.error('Waitlist error:', err);
+        btn.textContent = 'Try Again';
+        btn.style.background = '#c0392b';
+      }
+
+      setTimeout(() => {
+        btn.textContent = 'Join Waitlist';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    });
   </script>
 </body>
 
