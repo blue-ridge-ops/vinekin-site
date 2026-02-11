@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /.firebaserc
+Disallow: /firebase.json
+Disallow: /firestore.rules
+Disallow: /firestore.indexes.json
+Disallow: /storage.rules
+
+Sitemap: https://vinekin.com/sitemap.xml
