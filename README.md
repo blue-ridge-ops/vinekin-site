@@ -19,5 +19,5 @@ index.html        ← Single-page marketing site
 CNAME             ← Custom domain config for GitHub Pages
 images/
   vinekin_logo.png
-  vinekin_logo_no_text.png
+  vinekinl.png
 ```
