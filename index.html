@@ -12,19 +12,32 @@
     content="Daily Bible lessons designed for busy lifestyles. Learn Scripture in 5 minutes a day with grace, not guilt.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vinekin.com">
-  <meta property="og:image" content="https://vinekin.com/images/VineKinLogo.png">
+  <meta property="og:image" content="https://vinekin.com/images/VineKinLogo-512.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:site_name" content="VineKin">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VineKin — Bible Learning That Grows With You">
   <meta name="twitter:description" content="Daily Bible lessons designed for busy lifestyles. Learn Scripture in 5 minutes a day with grace, not guilt.">
-  <meta name="twitter:image" content="https://vinekin.com/images/VineKinLogo.png">
+  <meta name="twitter:image" content="https://vinekin.com/images/VineKinLogo-512.png">
+  <meta name="twitter:image:alt" content="VineKin — Bible Learning That Grows With You">
   <link rel="canonical" href="https://vinekin.com">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#2d6a4f">
-  <link rel="icon" type="image/png" href="images/VineKinLogo.png">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" href="images/VineKinLogo-96.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="modulepreload" href="https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
@@ -34,9 +47,15 @@
     "@type": "Organization",
     "name": "VineKin",
     "url": "https://vinekin.com",
-    "logo": "https://vinekin.com/images/VineKinLogo.png",
+    "logo": "https://vinekin.com/images/VineKinLogo-512.png",
     "description": "VineKin is a Bible learning app designed for busy lifestyles. Daily lessons, verse mastery, personalized devotionals, and Soul Friend accountability — all designed with grace, not guilt.",
-    "email": "hello@vinekin.com"
+    "email": "hello@vinekin.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@vinekin.com",
+      "contactType": "customer support"
+    },
+    "sameAs": []
   }
   </script>
   <script type="application/ld+json">
@@ -46,20 +65,80 @@
     "name": "VineKin",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "iOS, Android",
+    "url": "https://vinekin.com",
     "description": "Bible learning app designed for busy lifestyles with daily lessons, verse mastery, and personalized devotionals.",
+    "inLanguage": "en",
     "offers": [
       {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "name": "Free"
+        "name": "Free",
+        "availability": "https://schema.org/PreOrder"
       },
       {
         "@type": "Offer",
         "price": "5.99",
         "priceCurrency": "USD",
         "name": "Premium",
-        "billingIncrement": "P1M"
+        "billingIncrement": "P1M",
+        "availability": "https://schema.org/PreOrder"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is VineKin available now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not yet! VineKin is currently in development. Join our waitlist to be notified the moment we launch and get early access to the app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Christian traditions does VineKin support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VineKin is designed for the whole Body of Christ. We support Catholic, Orthodox, Anglican, and Evangelical traditions with tradition-sensitive content, multiple Bible translations (NABRE, ESV, NIV, NASB, and more), and liturgical calendar support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much time does VineKin take each day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Just five minutes. Our interactive lessons are designed to fit into the busiest schedules — between school drop-off and your first meeting, during a lunch break, or before bed. Of course, you can always spend more time if you'd like."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is VineKin free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Core spiritual access is always free, including daily Bible lessons, basic verse mastery, and community challenges. Premium unlocks deeper tools like personalized devotionals, Soul Friend accountability, and unlimited Bible translations starting at $5.99/month. We also offer a scholarship program so no one is priced out of growing in faith."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Soul Friend?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inspired by the Celtic 'anam cara' tradition, a Soul Friend is an accountability partner who walks alongside you in your faith journey. You can share devotionals, encourage each other, and grow together. Premium members can connect with up to 3 Soul Friends."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can our church use VineKin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! Our Church Partnership Program offers bulk licensing with significant discounts, a church admin dashboard, custom community pages, and tradition-specific content. Clergy and ministry leaders get free access. Contact us at churches@vinekin.com to learn more."
+        }
       }
     ]
   }
@@ -1203,6 +1282,73 @@
       font-size: 0.78rem;
     }
 
+    /* ===== FAQ ===== */
+    .faq {
+      background: var(--warm-white);
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 14px;
+      margin-bottom: 0.9rem;
+      border: 1px solid rgba(107, 155, 58, 0.08);
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .faq-item[open] {
+      box-shadow: var(--soft-shadow);
+    }
+
+    .faq-item summary {
+      padding: 1.2rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-family: var(--font-body);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--leaf);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item summary:hover {
+      color: var(--leaf-dark);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.3rem;
+      font-size: 0.95rem;
+      color: var(--bark-light);
+      line-height: 1.7;
+    }
+
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
       from {
@@ -1376,8 +1522,11 @@
        NAVIGATION
        ============================================================ -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">
-      <img src="images/VineKinLogo.png" alt="VineKin Logo" width="38" height="38">
+    <a href="/" class="nav-logo">
+      <picture>
+        <source srcset="images/VineKinLogo-48.webp" type="image/webp">
+        <img src="images/VineKinLogo-48.png" alt="VineKin Logo" width="38" height="38">
+      </picture>
       <span>VineKin</span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -1676,6 +1825,43 @@
   </div>
 
   <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="section-header fade-in">
+      <span class="section-label">FAQ</span>
+      <h2>Common questions</h2>
+      <p class="section-desc">Everything you need to know about VineKin before you join.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item fade-in">
+        <summary>Is VineKin available now?</summary>
+        <div class="faq-answer">Not yet! VineKin is currently in development. Join our waitlist to be notified the moment we launch and get early access to the app.</div>
+      </details>
+      <details class="faq-item fade-in">
+        <summary>What Christian traditions does VineKin support?</summary>
+        <div class="faq-answer">VineKin is designed for the whole Body of Christ. We support Catholic, Orthodox, Anglican, and Evangelical traditions with tradition-sensitive content, multiple Bible translations (NABRE, ESV, NIV, NASB, and more), and liturgical calendar support.</div>
+      </details>
+      <details class="faq-item fade-in">
+        <summary>How much time does VineKin take each day?</summary>
+        <div class="faq-answer">Just five minutes. Our interactive lessons are designed to fit into the busiest schedules — between school drop-off and your first meeting, during a lunch break, or before bed. Of course, you can always spend more time if you'd like.</div>
+      </details>
+      <details class="faq-item fade-in">
+        <summary>Is VineKin free to use?</summary>
+        <div class="faq-answer">Yes! Core spiritual access is always free, including daily Bible lessons, basic verse mastery, and community challenges. Premium unlocks deeper tools like personalized devotionals, Soul Friend accountability, and unlimited Bible translations starting at $5.99/month. We also offer a scholarship program so no one is priced out of growing in faith.</div>
+      </details>
+      <details class="faq-item fade-in">
+        <summary>What is a Soul Friend?</summary>
+        <div class="faq-answer">Inspired by the Celtic "anam cara" tradition, a Soul Friend is an accountability partner who walks alongside you in your faith journey. You can share devotionals, encourage each other, and grow together. Premium members can connect with up to 3 Soul Friends.</div>
+      </details>
+      <details class="faq-item fade-in">
+        <summary>Can our church use VineKin?</summary>
+        <div class="faq-answer">Absolutely! Our Church Partnership Program offers bulk licensing with significant discounts, a church admin dashboard, custom community pages, and tradition-specific content. Clergy and ministry leaders get free access. Contact us at <a href="mailto:churches@vinekin.com" style="color:var(--leaf);text-decoration:underline;">churches@vinekin.com</a> to learn more.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================================================
        PRICING (5 tiers: Free, Premium, Soul Friend Duo, Small Group, Family)
        ============================================================ -->
   <section class="pricing" id="pricing">
@@ -1877,8 +2063,11 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">
-          <img src="images/VineKinLogo.png" alt="VineKin" width="34" height="34">
+        <a href="/" class="nav-logo">
+          <picture>
+            <source srcset="images/VineKinLogo-48.webp" type="image/webp">
+            <img src="images/VineKinLogo-48.png" alt="VineKin" width="34" height="34">
+          </picture>
           <span>VineKin</span>
         </a>
         <p>Bible learning that grows with you. Designed for busy lifestyles, rooted in grace. Family in Christ.</p>
@@ -1895,17 +2084,16 @@
       <div class="footer-col">
         <h4>Resources</h4>
         <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Support</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mailto:hello@vinekin.com">Support</a></li>
           <li><a href="#join">Donate</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="mailto:hello@vinekin.com?subject=Privacy%20Inquiry">Privacy Policy</a></li>
+          <li><a href="mailto:hello@vinekin.com?subject=Terms%20of%20Service%20Inquiry">Terms of Service</a></li>
           <li><a href="mailto:hello@vinekin.com">Contact</a></li>
         </ul>
       </div>
