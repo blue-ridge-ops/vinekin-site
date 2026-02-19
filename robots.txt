@@ -1,10 +1,32 @@
+# robots.txt for vinekin.com
+# VineKin - Bible Learning App
+
 User-agent: *
 Allow: /
 
-Disallow: /.firebaserc
-Disallow: /firebase.json
-Disallow: /firestore.rules
-Disallow: /firestore.indexes.json
-Disallow: /storage.rules
-
+# Sitemap location
 Sitemap: https://vinekin.com/sitemap.xml
+
+# Block common non-content paths
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+
+# Allow all major search engine bots explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
