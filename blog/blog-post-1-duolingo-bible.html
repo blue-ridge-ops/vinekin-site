@@ -3,96 +3,475 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What If Learning the Bible Worked Like Duolingo? | VineKin Blog</title>
+  <title>What If Bible Study Used the Same Science as Language-Learning Apps? | VineKin Blog
   <meta name="description" content="Reading plans don't work for most people. What if Bible study used the same science-backed methods that help millions learn languages — interactive lessons, spaced repetition, and five-minute daily sessions?">
-  <meta name="keywords" content="Duolingo Bible app, gamified Bible study, interactive Bible learning, Bible app, learn the Bible, Scripture memorization, spaced repetition Bible">
-  <link rel="canonical" href="https://vinekin.com/blog/what-if-bible-learning-worked-like-duolingo">
-  
+  <meta name="keywords" content="gamified Bible app, gamified Bible study, interactive Bible learning, Bible app, learn the Bible, Scripture memorization, spaced repetition Bible">
+  <link rel="canonical" href="https://vinekin.com/blog/what-if-bible-study-used-learning-science">
+  <meta name="theme-color" content="#2d6a4f">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" href="../images/VineKinLogo-96.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
   <meta property="og:type" content="article">
-  <meta property="og:title" content="What If Learning the Bible Worked Like Duolingo?">
+  <meta property="og:title" content="What If Bible Study Used the Same Science as Language-Learning Apps?">
   <meta property="og:description" content="Reading plans don't work for most people. What if Bible study used the same methods that help millions learn languages?">
-  <meta property="og:url" content="https://vinekin.com/blog/what-if-bible-learning-worked-like-duolingo">
-  <meta property="og:image" content="https://vinekin.com/images/blog/duolingo-bible-og.png">
+  <meta property="og:url" content="https://vinekin.com/blog/what-if-bible-study-used-learning-science">
+  <meta property="og:image" content="https://vinekin.com/images/VineKinLogo-512.png">
   <meta property="og:site_name" content="VineKin">
   <meta property="article:published_time" content="2026-02-18T12:00:00Z">
-  
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What If Learning the Bible Worked Like Duolingo?">
+  <meta name="twitter:title" content="What If Bible Study Used the Same Science as Language-Learning Apps?">
   <meta name="twitter:description" content="Reading plans don't work for most people. What if Bible study used the same methods that help millions learn languages?">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "What If Learning the Bible Worked Like Duolingo?",
+    "headline": "What If Bible Study Used the Same Science as Language-Learning Apps?",
     "description": "Reading plans don't work for most people. What if Bible study used the same science-backed methods that help millions learn languages?",
-    "url": "https://vinekin.com/blog/what-if-bible-learning-worked-like-duolingo",
+    "url": "https://vinekin.com/blog/what-if-bible-study-used-learning-science",
     "datePublished": "2026-02-18",
     "dateModified": "2026-02-18",
     "author": { "@type": "Organization", "name": "VineKin" },
-    "publisher": { "@type": "Organization", "name": "VineKin", "url": "https://vinekin.com" }
+    "publisher": { "@type": "Organization", "name": "VineKin", "url": "https://vinekin.com", "logo": "https://vinekin.com/images/VineKinLogo-512.png" }
   }
   </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --leaf: #6B9B3A;
+      --leaf-light: #8FB84A;
+      --leaf-dark: #4A7A28;
+      --leaf-muted: #E9F2DE;
+      --cross: #7B6B3A;
+      --cross-light: #9E8D5C;
+      --cross-dark: #5C4A2A;
+      --cream: #FBF7F0;
+      --cream-dark: #F0EAE0;
+      --warm-white: #FEFCF9;
+      --bark: #3B2F24;
+      --bark-light: #6B5D50;
+      --bark-muted: #9B8E82;
+      --soft-shadow: 0 2px 20px rgba(59, 47, 36, 0.07);
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --section-x: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--bark);
+      background: var(--warm-white);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem var(--section-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(254, 252, 249, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 1px 16px rgba(59, 47, 36, 0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--bark);
+    }
+
+    .nav-logo img { height: 38px; width: auto; }
+
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      color: var(--cross-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--bark-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--leaf-dark); }
+
+    .nav-cta {
+      background: var(--leaf) !important;
+      color: white !important;
+      padding: 0.55rem 1.35rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--leaf-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--bark);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ===== ARTICLE ===== */
+    .blog-article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 7rem var(--section-x) 4rem;
+    }
+
+    .blog-article h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-meta {
+      font-size: 0.9rem;
+      color: var(--bark-muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .blog-article h2 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--cross-dark);
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-article p {
+      margin-bottom: 1.3rem;
+      font-size: 1.05rem;
+      line-height: 1.78;
+    }
+
+    .blog-article a {
+      color: var(--leaf-dark);
+      text-decoration: underline;
+      text-decoration-color: var(--leaf-muted);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.3s;
+    }
+
+    .blog-article a:hover {
+      text-decoration-color: var(--leaf);
+    }
+
+    .blog-article strong {
+      color: var(--cross-dark);
+      font-weight: 600;
+    }
+
+    .blog-article em {
+      color: var(--bark-light);
+    }
+
+    .blog-cta {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--leaf-muted);
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .blog-cta p {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cross-dark);
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--leaf);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(107, 155, 58, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--leaf-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(107, 155, 58, 0.4);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--cross-dark);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 3.5rem var(--section-x) 1.8rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand .nav-logo span { color: rgba(255, 255, 255, 0.9); }
+    .footer-brand .nav-logo img { filter: brightness(1.5); }
+
+    .footer-brand p {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin-top: 0.8rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.45rem; }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--leaf-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2.2rem auto 0;
+      padding-top: 1.3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--cream);
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: var(--soft-shadow);
+      }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<article>
+  <nav>
+    <a href="/" class="nav-logo">
+      <picture>
+        <source srcset="../images/VineKinLogo-48.webp" type="image/webp">
+        <img src="../images/VineKinLogo-48.png" alt="VineKin Logo" width="38" height="38">
+      </picture>
+      <span>VineKin</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#traditions">Traditions</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#churches">Churches</a></li>
+      <li><a href="/#join" class="nav-cta">Join the Waitlist</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<h1>What If Learning the Bible Worked Like Duolingo?</h1>
+  <article class="blog-article">
 
-<p><em>Published February 18, 2026 · 7 min read</em></p>
+    <h1>What If Bible Study Used the Same Science as Language-Learning Apps?</h1>
+    <p class="blog-meta">Published February 18, 2026 &middot; 7 min read</p>
 
-<p>Here's a number that should bother anyone who cares about Scripture: most Bible reading plans have a completion rate somewhere south of 10%. People start in January with the best intentions, hit Leviticus by February, and quietly abandon the whole thing by March. The app stays installed. The guilt lingers. The Bible stays unread.</p>
+    <p>Here's a number that should bother anyone who cares about Scripture: most Bible reading plans have a completion rate somewhere south of 10%. People start in January with the best intentions, hit Leviticus by February, and quietly abandon the whole thing by March. The app stays installed. The guilt lingers. The Bible stays unread.</p>
 
-<p>Meanwhile, Duolingo has over 100 million monthly active users happily spending time every day learning languages. Not because language learning is inherently more interesting than Scripture — but because Duolingo figured out something that Bible apps mostly haven't: <strong>how people actually learn</strong>.</p>
+    <p>Meanwhile, the best language-learning apps have hundreds of millions of users happily spending time every day building new skills. Not because language learning is inherently more interesting than Scripture — but because those apps figured out something that Bible apps mostly haven't: <strong>how people actually learn</strong>.</p>
 
-<h2>Why Reading Plans Fail</h2>
+    <h2>Why Reading Plans Fail</h2>
 
-<p>The standard Bible app experience is essentially a PDF with a progress bar. You get a reading assignment — three chapters of Genesis today — and you either read it or you don't. There's no interaction, no retrieval practice, no way to know if you actually retained anything. You're consuming content, not learning it.</p>
+    <p>The standard Bible app experience is essentially a PDF with a progress bar. You get a reading assignment — three chapters of Genesis today — and you either read it or you don't. There's no interaction, no retrieval practice, no way to know if you actually retained anything. You're consuming content, not learning it.</p>
 
-<p>Learning science has known for decades that passive reading is one of the least effective ways to build lasting knowledge. The research is overwhelming: active recall, spaced repetition, interleaving, and testing effects dramatically outperform re-reading. These aren't exotic techniques. They're the backbone of every effective learning app on the market — except, somehow, most Bible apps.</p>
+    <p>Learning science has known for decades that passive reading is one of the least effective ways to build lasting knowledge. The research is overwhelming: active recall, spaced repetition, interleaving, and testing effects dramatically outperform re-reading. These aren't exotic techniques. They're the backbone of every effective learning app on the market — except, somehow, most Bible apps.</p>
 
-<h2>What Duolingo Gets Right</h2>
+    <h2>What Language-Learning Apps Get Right</h2>
 
-<p>Duolingo's genius isn't the green owl. It's the learning model underneath. Lessons are short — five minutes works. You're actively doing things: arranging words, filling blanks, choosing answers, typing responses. The app tracks what you know and what you don't, then strategically resurfaces the material you're weakest on. You learn without realizing you're being taught.</p>
+    <p>The genius of the best learning apps isn't the mascots or the streaks. It's the learning model underneath. Lessons are short — five minutes works. You're actively doing things: arranging words, filling blanks, choosing answers, typing responses. The app tracks what you know and what you don't, then strategically resurfaces the material you're weakest on. You learn without realizing you're being taught.</p>
 
-<p>There's no reason this can't work for Scripture. In fact, the Bible is <em>better</em> suited to this approach than language learning in some ways. Verses are naturally bite-sized. There's inherent structure (books, chapters, themes). And unlike conjugating French verbs, there's deep personal meaning driving the motivation to learn.</p>
+    <p>There's no reason this can't work for Scripture. In fact, the Bible is <em>better</em> suited to this approach than language learning in some ways. Verses are naturally bite-sized. There's inherent structure (books, chapters, themes). And unlike conjugating French verbs, there's deep personal meaning driving the motivation to learn.</p>
 
-<h2>How VineKin Applies This</h2>
+    <h2>How VineKin Applies This</h2>
 
-<p><a href="https://vinekin.com">VineKin</a> is a Bible learning app built on these principles. Instead of assigning chapters to read, it teaches through interaction.</p>
+    <p><a href="https://vinekin.com">VineKin</a> is a Bible learning app built on these principles. Instead of assigning chapters to read, it teaches through interaction.</p>
 
-<p>In a typical five-minute session, you might arrange the words of a verse in the correct order, answer a reflection question that connects the passage to your actual life, fill in missing words from a verse you studied last week (spaced repetition at work), and identify which book and chapter a familiar passage comes from. Each exercise forces your brain to <em>retrieve</em> information rather than passively recognize it. That retrieval effort is what builds lasting memory.</p>
+    <p>In a typical five-minute session, you might arrange the words of a verse in the correct order, answer a reflection question that connects the passage to your actual life, fill in missing words from a verse you studied last week (spaced repetition at work), and identify which book and chapter a familiar passage comes from. Each exercise forces your brain to <em>retrieve</em> information rather than passively recognize it. That retrieval effort is what builds lasting memory.</p>
 
-<p>The <a href="https://vinekin.com/#features">Verse Mastery</a> system tracks your progress across five different exercise types and uses a spaced repetition algorithm to bring back material at the optimal moment — just as you're about to forget it. The result is that verses you study in January are still accessible in your memory come December.</p>
+    <p>The <a href="https://vinekin.com/#features">Verse Mastery</a> system tracks your progress across five different exercise types and uses a spaced repetition algorithm to bring back material at the optimal moment — just as you're about to forget it. The result is that verses you study in January are still accessible in your memory come December.</p>
 
-<h2>But It's Not Just Duolingo With Verses</h2>
+    <h2>But It's More Than Gamification With Verses</h2>
 
-<p>Here's where VineKin diverges from a pure gamification clone. Duolingo works because language learning is largely mechanical — grammar rules, vocabulary, pronunciation patterns. Scripture isn't mechanical. It's deeply personal, tied to your life circumstances, your tradition, your struggles and hopes.</p>
+    <p>Here's where VineKin diverges from a pure gamification clone. Language-learning apps work because their subject matter is largely mechanical — grammar rules, vocabulary, pronunciation patterns. Scripture isn't mechanical. It's deeply personal, tied to your life circumstances, your tradition, your struggles and hopes.</p>
 
-<p>So VineKin adds layers that a pure learning app wouldn't have:</p>
+    <p>So VineKin adds layers that a pure learning app wouldn't have:</p>
 
-<p><strong>Personalized devotionals</strong> that connect Scripture to what you're actually living — whether that's navigating a career change, raising young kids, grieving a loss, or just trying to find peace in a season that won't slow down. The app asks about your life stage and meets you in it. You're not getting generic content designed for everyone and therefore resonating with no one.</p>
+    <p><strong>Personalized devotionals</strong> that connect Scripture to what you're actually living — whether that's navigating a career change, raising young kids, grieving a loss, or just trying to find peace in a season that won't slow down. The app asks about your life stage and meets you in it. You're not getting generic content designed for everyone and therefore resonating with no one.</p>
 
-<p><strong>Multi-tradition support</strong> because the Body of Christ isn't monolithic. Whether you're Catholic and want the NABRE with liturgical calendar support, Orthodox and following the Julian calendar, Anglican praying from the Book of Common Prayer, or evangelical studying the ESV or NIV — <a href="https://vinekin.com/#traditions">VineKin serves your tradition</a>. Prayer styles, Bible translations, and seasonal content all adapt.</p>
+    <p><strong>Multi-tradition support</strong> because the Body of Christ isn't monolithic. Whether you're Catholic and want the NABRE with liturgical calendar support, Orthodox and following the Julian calendar, Anglican praying from the Book of Common Prayer, or evangelical studying the ESV or NIV — <a href="https://vinekin.com/#traditions">VineKin serves your tradition</a>. Prayer styles, Bible translations, and seasonal content all adapt.</p>
 
-<p><strong>Grace-first design</strong> because the last thing your faith life needs is another app guilt-tripping you. VineKin uses what we call a Faithfulness Bonus instead of punitive streaks. You set your own weekly goal — maybe three days, maybe five. Miss a day? The app celebrates that you showed up four out of five times instead of shaming you for the one you missed. Life happens. Your Bible app should get that.</p>
+    <p><strong>Grace-first design</strong> because the last thing your faith life needs is another app guilt-tripping you. VineKin uses what we call a Faithfulness Bonus instead of punitive streaks. You set your own weekly goal — maybe three days, maybe five. Miss a day? The app celebrates that you showed up four out of five times instead of shaming you for the one you missed. Life happens. Your Bible app should get that.</p>
 
-<p><strong>Soul Friends</strong> — accountability partnerships inspired by the Celtic "anam cara" tradition. Not a social feed. Not a leaderboard. A real connection with one person walking the same road, sharing devotionals and checking in on each other. For people who want broader community, Small Groups of 3–10 get shared content and weekly discussion prompts.</p>
+    <p><strong>Soul Friends</strong> — accountability partnerships inspired by the Celtic "anam cara" tradition. Not a social feed. Not a leaderboard. A real connection with one person walking the same road, sharing devotionals and checking in on each other. For people who want broader community, Small Groups of 3–10 get shared content and weekly discussion prompts.</p>
 
-<h2>Who This Is For</h2>
+    <h2>Who This Is For</h2>
 
-<p>VineKin is designed for anyone whose life doesn't leave room for a 30-minute quiet time but whose desire to grow in Scripture is real. That might be a parent with five minutes between school drop-off and a work call. A nurse grabbing a moment during a shift change. A grad student who wants depth without another heavy reading assignment. A retiree who's busier than expected and wants to make those margins count. A young professional building a career and a faith at the same time.</p>
+    <p>VineKin is designed for anyone whose life doesn't leave room for a 30-minute quiet time but whose desire to grow in Scripture is real. That might be a parent with five minutes between school drop-off and a work call. A nurse grabbing a moment during a shift change. A grad student who wants depth without another heavy reading assignment. A retiree who's busier than expected and wants to make those margins count. A young professional building a career and a faith at the same time.</p>
 
-<p>The common thread isn't demographics — it's the reality of a full life and a genuine desire to let Scripture take root in it.</p>
+    <p>The common thread isn't demographics — it's the reality of a full life and a genuine desire to let Scripture take root in it.</p>
 
-<h2>Join the Waitlist</h2>
+    <div class="blog-cta">
+      <p>VineKin is launching soon. Join the waitlist and we'll let you know the moment it's ready.</p>
+      <a href="https://vinekin.com/#join" class="btn-primary">Join the Waitlist</a>
+    </div>
 
-<p>VineKin is launching soon. <a href="https://vinekin.com/#join">Join the waitlist</a> and we'll let you know the moment it's ready. Your email is sacred to us — we'll never sell, share, or misuse it.</p>
+    <p style="margin-top: 2rem;"><em>VineKin — Bible learning that grows with you.</em></p>
 
-<p><em>VineKin — Bible learning that grows with you.</em></p>
+  </article>
 
-</article>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <picture>
+            <source srcset="../images/VineKinLogo-48.webp" type="image/webp">
+            <img src="../images/VineKinLogo-48.png" alt="VineKin" width="34" height="34">
+          </picture>
+          <span>VineKin</span>
+        </a>
+        <p>Bible Learning App that grows with you. Designed for busy lifestyles, rooted in grace. Family in Christ.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#traditions">Traditions</a></li>
+          <li><a href="/#churches">For Churches</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="mailto:hello@vinekin.com">Support</a></li>
+          <li><a href="/#join">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="mailto:hello@vinekin.com?subject=Privacy%20Inquiry">Privacy Policy</a></li>
+          <li><a href="mailto:hello@vinekin.com?subject=Terms%20of%20Service%20Inquiry">Terms of Service</a></li>
+          <li><a href="mailto:hello@vinekin.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 VineKin. All rights reserved.</span>
+      <span>Made with faith in North Carolina.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
